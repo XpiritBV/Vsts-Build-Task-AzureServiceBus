@@ -8,9 +8,9 @@
   "visibility": [ "Build", "Release" ],
   "author": "Peter Groenewegen - Xpirit",
   "version": {
-    "Major": 0,
+    "Major": 1,
     "Minor": 0,
-    "Patch": 2
+    "Patch": 0
   },
   "demands": [ ],
   "minimumAgentVersion": "1.95.0",

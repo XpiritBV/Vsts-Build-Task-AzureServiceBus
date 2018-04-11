@@ -2,9 +2,9 @@
   "manifestVersion": 1,
   "id": "PeterGroenewegen-Xpirit-Vsts-Build-AzureServiceBus",
   "name": "Post a message to a service bus",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "publisher": "petergroenewegen",
-  "public": false,
+  "public": true,
   "targets": [
     {
       "id": "Microsoft.VisualStudio.Services"
