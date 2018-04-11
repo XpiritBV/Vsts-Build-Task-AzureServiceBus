@@ -1,0 +1,72 @@
+{
+  "manifestVersion": 1,
+  "id": "PeterGroenewegen-Xpirit-Vsts-Build-AzureServiceBus",
+  "name": "Post a message to a service bus",
+  "version": "0.0.2",
+  "publisher": "petergroenewegen",
+  "public": false,
+  "targets": [
+    {
+      "id": "Microsoft.VisualStudio.Services"
+    }
+  ],
+  "description": "Build extension that enable you to post a message on a Azure Service Bus",
+  "categories": [
+    "Build and release"
+  ],
+  "tags": [
+    "release",
+    "build",
+    "Servicebus",
+    "Service",
+    "Bus",
+    "Azure",
+    "Queue"
+  ],
+  "screenshots": [
+    {
+      "path": "Xpirit.Vsts.Build.AzureServiceBus.Extension/images/screenshots/vsts-AzureServiceBus-task.png"
+    }
+  ],
+  "content": {
+    "details": {
+      "path": "Xpirit.Vsts.Build.AzureServiceBus.Extension/readme.md"
+    },
+    "license": {
+      "path": "Xpirit.Vsts.Build.AzureServiceBus.Extension/license.txt"
+    }
+  },
+  "links": {
+    "getstarted": {
+      "uri": "https://pgroene.wordpress.com/"
+    },
+    "support": {
+      "uri": "https://github.com/XpiritBV/Vsts-Build-Task-AzureServiceBus/"
+    }
+  },
+  "branding": {
+    "color": "rgb(36, 43, 50)",
+    "theme": "dark"
+  },
+  "icons": {
+    "default": "Xpirit.Vsts.Build.AzureServiceBus.Extension/images/AzureServiceBus.png"
+  },
+  "files": [
+    {
+      "path": "Xpirit-Vsts-Build-AzureServiceBus"
+    }
+  ],
+
+  "contributions": [
+    {
+      "id": "Xpirit-Vsts-Build-AzureServiceBus",
+      "type": "ms.vss-distributed-task.task",
+      "targets": [
+        "ms.vss-distributed-task.tasks"
+      ],
+      "properties": {
+        "name": "Xpirit-Vsts-Build-AzureServiceBus"
+      }
+    }
+  ]
+}
