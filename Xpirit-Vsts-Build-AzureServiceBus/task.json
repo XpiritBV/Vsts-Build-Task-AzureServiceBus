@@ -3,14 +3,14 @@
   "name": "AzureServiceBus",
   "friendlyName": "Post a message to Azure Service Bus",
   "description": "Post a message to Azure Service Bus from a build or release pipeline",
-  "helpMarkDown": "Information on how to use the task: [Blog](https://pgroene.wordpress.com/",
+  "helpMarkDown": "",
   "category": "Utility",
   "visibility": [ "Build", "Release" ],
-  "author": "Peter Groenewegen - Xpirit",
+  "author": "Peter Groenewegen",
   "version": {
     "Major": 1,
     "Minor": 0,
-    "Patch": 0
+    "Patch": 1
   },
   "demands": [ ],
   "minimumAgentVersion": "1.95.0",
