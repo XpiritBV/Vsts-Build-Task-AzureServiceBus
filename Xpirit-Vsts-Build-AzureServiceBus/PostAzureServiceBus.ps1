@@ -71,7 +71,6 @@ function Send-Message {
 
     $brokerProperties = @{
         State='Active'
-        TimeToLive=10.0
     }
     $brokerPropertiesJson = ConvertTo-Json $brokerProperties -Compress
     $headers.Add('BrokerProperties',$brokerPropertiesJson)
