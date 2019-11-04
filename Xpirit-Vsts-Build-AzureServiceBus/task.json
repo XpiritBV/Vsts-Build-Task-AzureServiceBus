@@ -75,7 +75,7 @@
       "label": "Custom message properties",
       "defaultValue": "",
       "required": false,
-      "helpMarkDown": "Custom message properties sent along with header. Key-value pairs separated by semicolon"
+      "helpMarkDown": "Custom message properties sent along with header. Key-value pairs separated by semicolon, e.g. key1=value1;key2=value2"
     }
   ],
   "instanceNameFormat": "Post to Azure Service Bus",
