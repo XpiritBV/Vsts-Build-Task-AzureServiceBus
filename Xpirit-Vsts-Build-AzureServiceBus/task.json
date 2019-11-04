@@ -69,6 +69,14 @@
         "rows": "5"
       }
     }
+    {
+      "name": "CustomMessageProperties",
+      "type": "string",
+      "label": "Custom message properties",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "Custom message properties sent along with header. Key-value pairs separated by semicolon"
+    }
   ],
   "instanceNameFormat": "Post to Azure Service Bus",
   "execution": {
