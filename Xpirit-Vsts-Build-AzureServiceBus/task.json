@@ -10,7 +10,7 @@
   "version": {
     "Major": 1,
     "Minor": 1,
-    "Patch": 0
+    "Patch": 1
   },
   "demands": [ ],
   "minimumAgentVersion": "1.95.0",
@@ -68,7 +68,7 @@
         "resizable": true,
         "rows": "5"
       }
-    }
+    },
     {
       "name": "CustomMessageProperties",
       "type": "string",
