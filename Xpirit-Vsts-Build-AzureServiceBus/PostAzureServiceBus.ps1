@@ -8,6 +8,7 @@ $queueName = Get-VstsInput -Name QueueName -Require
 $senderKeyName = Get-VstsInput -Name SenderKeyName -Require
 $senderKey = Get-VstsInput -Name SenderKey -Require
 $message = Get-VstsInput -Name Message -Require
+$properties = Get-VstsInput -Name CustomMessageProperties
 
 #True if running in china
 
@@ -64,7 +65,8 @@ function Send-Message {
     param (
             [parameter(Mandatory=$True, Position=1)] [String] $RestApiUri,
             [parameter(Mandatory=$True, Position=2)] [String] $SasToken,
-            [parameter(Mandatory=$True, Position=3)] [String] $Message
+            [parameter(Mandatory=$True, Position=3)] [String] $Message,
+            [parameter(Mandatory=$True, Position=4)] [string] $MessageProperties
     )
 
     $headers = @{'Authorization'=$SasToken}
@@ -78,6 +80,18 @@ function Send-Message {
     $appPropName = 'Priority'
     $appPropValue = 'High'
     $headers.Add($appPropName,$appPropValue)
+    
+    # custom message properties
+    if (-Not [string]::IsNullOrEmpty($MessageProperties))
+    {
+        $props = $MessageProperties.Split(';')
+        
+        foreach ($prop in $props)
+        {
+            $pair = $prop.Split('=')
+            $headers.Add($pair[0], $pair[1])
+        }
+    }
     
     $messageToPost = [System.Text.Encoding]::UTF8.GetBytes($Message)
     
@@ -104,7 +118,7 @@ if ($isMooncake) { $resourceUri = "https://$serviceBusNamespace.servicebus.china
 $sendMessageRestUri = "$resourceUri/messages?timeout=60";
 $senderSasToken = New-SaSToken -ResourceUri $resourceUri -KeyName $senderKeyName -Key $senderKey
 
-Send-Message -RestApiUri $sendMessageRestUri -SasToken $senderSasToken -Message $message
+Send-Message -RestApiUri $sendMessageRestUri -SasToken $senderSasToken -Message $message -MessageProperties $properties
 
 #Clean up variables
 Remove-Variable -Name sendMessageRestUri
@@ -115,6 +129,7 @@ Remove-Variable -Name queueName
 Remove-Variable -Name senderKey
 Remove-Variable -Name senderKeyName
 Remove-Variable -Name message
+Remove-Variable -Name properties
 
 if ($error){
     "##vso[task.complete result=Failed]"
