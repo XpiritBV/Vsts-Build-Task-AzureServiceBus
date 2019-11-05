@@ -66,7 +66,7 @@ function Send-Message {
             [parameter(Mandatory=$True, Position=1)] [String] $RestApiUri,
             [parameter(Mandatory=$True, Position=2)] [String] $SasToken,
             [parameter(Mandatory=$True, Position=3)] [String] $Message,
-            [parameter(Mandatory=$True, Position=4)] [string] $MessageProperties
+            [parameter(Mandatory=$False, Position=4)] [string] $MessageProperties
     )
 
     $headers = @{'Authorization'=$SasToken}
@@ -82,8 +82,7 @@ function Send-Message {
     $headers.Add($appPropName,$appPropValue)
     
     # custom message properties
-    if (-Not [string]::IsNullOrEmpty($MessageProperties))
-    {
+    if (-Not [string]::IsNullOrWhitespace($MessageProperties)) {
         $props = $MessageProperties.Split(';')
         
         foreach ($prop in $props)
